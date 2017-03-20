@@ -14,7 +14,9 @@ from gi.repository import AppIndicator3 as appindicator
 
 import decimal_time
 
+
 APPINDICATOR_ID = 'decimal_time'
+
 
 def main(icon_num=0):
     script_path = path.abspath(path.dirname(sys.argv[0]))
@@ -27,6 +29,7 @@ def main(icon_num=0):
     indicator.set_menu(build_menu())
     gtk.main()
 
+    
 def build_menu():
     menu = gtk.Menu()
     item_quit = gtk.MenuItem('Quit')
@@ -35,8 +38,10 @@ def build_menu():
     menu.show_all()
     return menu
  
+    
 def quit(source):
     gtk.main_quit()
 
+    
 if __name__ == "__main__":
     fire.Fire(main)
