@@ -11,14 +11,18 @@ def _dsecs_since_midnight(timestamp: datetime) -> float:
     return (dt.seconds + dt.microseconds/1e6) / 0.864  # decimal seconds
     
 
-def decimal_now():
-    dt = _dsecs_since_midnight(datetime.now())
+def parse_dsecs(timestamp:datetime) -> DecimalTimeDelta:
+    dt = _dsecs_since_midnight(timestamp)
     dt_str = f"{dt:012.6f}"
     hours = int(dt_str[0])
     minutes = int(dt_str[1:3])
     seconds = int(dt_str[3:5])
     microseconds = int(dt_str[-6:])
     return DecimalTimeDelta(hours, minutes, seconds, microseconds)
+
+
+def decimal_now():
+    return parse_dsecs(datetime.now())
 
 
 def update_ui_number(indicator):
