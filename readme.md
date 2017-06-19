@@ -1,4 +1,4 @@
-# Work Day Percentage Display Applet
+# Decimal Time Applet
 
 This will display the time in a decimal format as an Ubuntu applet.
 
